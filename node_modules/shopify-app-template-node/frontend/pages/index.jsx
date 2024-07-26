@@ -1,24 +1,21 @@
-import {
-  Card,
-  Page,
-  Layout,
-  TextContainer,
-  Image,
-  Stack,
-  Link,
-  Text,
-} from "@shopify/polaris";
-import { TitleBar } from "@shopify/app-bridge-react";
-import { useTranslation, Trans } from "react-i18next";
-
-import { trophyImage } from "../assets";
-
-import { ProductsCard } from "../components";
+import React from "react";
+import { CredentialsComponent } from "../components";
+import "./index.css";
 
 export default function HomePage() {
-  const { t } = useTranslation();
   return (
-    <Page narrowWidth>
-    </Page>
+    <div className="container">
+      <div className="topbar-section">
+      <div className="logo-block">
+          <img className="logo" src="../assets/etglogo.png" alt="logo image" />
+          <h1 className='app-name'>Salesforce Connecter</h1>
+        </div>
+      </div>
+      <div className="form-section">
+        <div className="form-component">
+          <CredentialsComponent />
+        </div>
+      </div>
+    </div>
   );
 }

@@ -1,0 +1,61 @@
+:root {
+    --bg_primary: #0F0F0F;
+    --bg_secondary: #232D3F;
+    --color_button: #008170;
+    --color_light1: #EBE3D5;
+    --color_light2: #F3EEEA;
+    --color_white: #ffffff;
+    --color_black: #000;
+    --color_red: #f00;
+    --color_coffee: #776B5D;
+    --color_graylight: #F0F0F0;
+    --color_graydark: #A9A9A9;
+}
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    height: auto;
+}
+.container {
+    /*border: 2px solid black;*/
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--color_white);
+    box-shadow: 2px 0px 10px var(--color_graydark);
+}
+.logo {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+.topbar-section {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    /*border: 2px solid blue;*/
+    border-left: 5px solid var(--color_button);
+    background-color: var(--color_white);
+    box-shadow: 2px 0px 10px var(--color_graydark);
+}
+.topbar-section .logo-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+.logo-block a {
+    text-align: center;
+    padding: 0px 15px;
+}
+.app-name {
+    font-size: 25px;
+    font-weight: 400;
+}

@@ -1,0 +1,141 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: auto;
+}
+
+.form-container {
+    /*border: 2px solid yellow;*/
+    width: 50vw;
+    display: block;
+    text-align: center;
+    transform: translate(50%, 0);
+    margin-top: 5%;
+    padding: 10px;
+}
+
+.inputs-container {
+    /*border: 2px solid black;*/
+    text-align: left;
+    margin-top: 10vh;
+}
+
+input[type=text],
+input[type=password] {
+    width: 95%;
+    padding: 5px 10px;
+    margin: 5px 10px;
+    border-radius: 5px;
+    font-size: medium;
+    border: 1px solid gray;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    border: 2px solid #367ce4;
+}
+
+input[type=submit]:disabled {
+    background-color: #7c9793;
+    cursor:default;
+}
+
+.submit {
+    transform: translate(37%, 0);
+}
+
+label {
+    font-size: 1rem;
+    margin: 1rem;
+}
+
+/* The Modal (background) */
+.modal {
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #ffffff;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+}
+
+/* The Close Button */
+.confirm, .close {
+    border-radius: 5px;
+    border: 1px solid gray;
+    background-color: #3a8379;
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 2px 10px;
+    margin: 20px 10px;
+}
+.close {
+    background-color: #4b6d68;
+}
+
+.close:hover,
+.close:focus {
+    background-color: #2d4a47;
+    text-decoration: none;
+    cursor: pointer;
+}
+.reset-btn,.submit-btn {
+    width: 20%;
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin: 20px 10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    background-color: #3a8379;
+    color: #ffffff;
+}
+.submit-btn:hover,.submit-btn:focus {
+    background-color: #016356;
+    text-decoration: none;
+    cursor: pointer;
+}
+.reset-btn:hover,.reset-btn:focus {
+    background-color: #016356;
+    text-decoration: none;
+    cursor: pointer;
+}
+.confirm:hover,.confirm:focus {
+    background-color: #016356;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-message {
+    margin-bottom: 1.5rem;
+}
+
+.loader {
+    width: 20vw;
+    height: 20vh;
+    transform: translate(200%,180%);
+}

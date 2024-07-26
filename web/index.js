@@ -5,8 +5,11 @@ import express from "express";
 import serveStatic from "serve-static";
 
 import shopify from "./shopify.js";
-import productCreator from "./product-creator.js";
 import PrivacyWebhookHandlers from "./privacy.js";
+import createMetaobject from "./create-metaobject.js";
+import updateMetaobject from "./update-metaobject.js";
+import fetchMetobject from "./fetch-metaobject.js";
+import fetchMetobjectDefinition from "./fetch-metaobject-definition.js";
 
 const PORT = parseInt(
   process.env.BACKEND_PORT || process.env.PORT || "3000",
@@ -39,25 +42,63 @@ app.use("/api/*", shopify.validateAuthenticatedSession());
 
 app.use(express.json());
 
-app.get("/api/products/count", async (_req, res) => {
-  const countData = await shopify.api.rest.Product.count({
-    session: res.locals.shopify.session,
-  });
-  res.status(200).send(countData);
-});
-
-app.post("/api/products", async (_req, res) => {
+app.get("/api/metaobjects", async (_req, res) => {
   let status = 200;
   let error = null;
 
   try {
-    await productCreator(res.locals.shopify.session);
+    const metaobjectData = await fetchMetobject(res.locals.shopify.session);
+    res.status(status).send(metaobjectData);
   } catch (e) {
-    console.log(`Failed to process products/create: ${e.message}`);
+    console.log(`Failed to fetch MetaObject: ${e.message}`);
     status = 500;
     error = e.message;
+    res.status(status).send(e);
   }
-  res.status(status).send({ success: status === 200, error });
+});
+app.get("/api/metaobjectDefinitions", async (_req, res) => {
+  let status = 200;
+  let error = null;
+
+  try {
+    const metaobjectData = await fetchMetobjectDefinition(res.locals.shopify.session);
+    res.status(status).send(metaobjectData);
+  } catch (e) {
+    console.log(`Failed to fetch MetaObjectDefinition: ${e.message}`);
+    status = 500;
+    error = e.message;
+    res.status(status).send(e);
+  }
+});
+app.patch("/api/graphql", async (_req, res) => {
+  let status = 200;
+  let error = null;
+  let { query, variables } = _req.body;
+
+  try {
+    const metaobjectData = await updateMetaobject(res.locals.shopify.session,query,variables);
+    res.status(status).send(metaobjectData);
+  } catch (e) {
+    console.log(`Failed to update MetaObject: ${e.message}`);
+    status = 500;
+    error = e.message;
+    res.status(status).send(e);
+  }
+});
+app.post("/api/graphql", async (_req, res) => {
+  let status = 200;
+  let error = null;
+  let { query, variables } = _req.body;
+
+  try {
+    const metaobjectData = await createMetaobject(res.locals.shopify.session,query,variables);
+    res.status(status).send(metaobjectData);
+  } catch (e) {
+    console.log(`Failed to Create Object: ${e.message}`);
+    status = 500;
+    error = e.message;
+    res.status(status).send(e);
+  }
 });
 
 app.use(shopify.cspHeaders());

@@ -3,7 +3,7 @@
 client_id = "a296445abbe2616177a4b8f218406a24"
 name = "salesforce-connect-app"
 handle = "salesforce-connect-app"
-application_url = "https://suburban-dietary-guards-check.trycloudflare.com"
+application_url = "https://chronicles-determined-existing-eds.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_assigned_fulfillment_orders,read_content,read_customers,read_meta
 
 [auth]
 redirect_urls = [
-  "https://suburban-dietary-guards-check.trycloudflare.com/auth/callback",
-  "https://suburban-dietary-guards-check.trycloudflare.com/auth/shopify/callback",
-  "https://suburban-dietary-guards-check.trycloudflare.com/api/auth/callback"
+  "https://chronicles-determined-existing-eds.trycloudflare.com/auth/callback",
+  "https://chronicles-determined-existing-eds.trycloudflare.com/auth/shopify/callback",
+  "https://chronicles-determined-existing-eds.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
