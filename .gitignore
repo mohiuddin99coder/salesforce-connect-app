@@ -2,8 +2,6 @@
 .env
 .env.*
 
-# Dependency directory
-node_modules
 
 # Test coverage directory
 coverage
@@ -23,6 +21,3 @@ dist/
 
 # extensions build output
 extensions/*/build
-
-# Node library SQLite database
-web/database.sqlite
